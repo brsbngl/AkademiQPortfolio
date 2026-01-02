@@ -1,0 +1,81 @@
+﻿<section id="section3" style="padding: 120px 0; background: #0f172a; position: relative; overflow: hidden; font-family: 'Inter', sans-serif;">
+
+    <div style="position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.05) 0%, transparent 70%);"></div>
+    <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 40px 40px;"></div>
+
+    <div class="container" style="position: relative; z-index: 2;">
+
+        <div style="margin-bottom: 70px;">
+            <h2 style="font-size: 42px; font-weight: 800; color: #ffffff; display: flex; align-items: center; gap: 20px; letter-spacing: -1px; margin: 0;">
+                <span style="width: 40px; height: 6px; background: linear-gradient(90deg, #3b82f6, #a855f7); display: inline-block; border-radius: 10px;"></span>
+                YETENEKLERİM
+            </h2>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6" style="padding-right: 40px;">
+                <h4 style="color: #3b82f6; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 40px;">TEKNİK BİLGİLERİM</h4>
+
+                @{
+                    var skills = new[] {
+                                new { Name = "C#", Perc = "80%" },
+                                new { Name = "JAVA", Perc = "100%" },
+                                new { Name = "JAVASCRIPT", Perc = "65%" },
+                                new { Name = "WORDPRESS", Perc = "50%" }
+                                };
+                }
+
+                @foreach (var skill in skills)
+                {
+                    <div style="margin-bottom: 30px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <span style="color: #ffffff; font-weight: 600; font-size: 15px;">@skill.Name</span>
+                            <span style="color: #94a3b8; font-size: 13px;">@skill.Perc</span>
+                        </div>
+                        <div style="height: 8px; background: rgba(255,255,255,0.05); border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);">
+                            <div style="width: @skill.Perc; height: 100%; background: linear-gradient(90deg, #3b82f6, #a855f7); border-radius: 10px; box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);"></div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div class="col-md-6" style="padding-left: 40px; border-left: 1px solid rgba(255,255,255,0.05);">
+                <h4 style="color: #a855f7; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 40px;">NELERİ YAPABİLİRİM</h4>
+
+                <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
+                    @{
+                        var services = new[] { "SERVER KURMA VE YÖNETME", "WEB SİTESİ KURULUMU", "VERİTABANI YÖNETİMİ", "API ENTEGRASYONU", "BACKEND GELİŞTİRME", "UI TASARIMI", "SEO OPTİMİZASYONU" };
+                    }
+                    @foreach (var service in services)
+                    {
+                        <div style="display: flex; align-items: center; gap: 15px; padding: 12px 20px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; transition: all 0.3s;" onmouseover="this.style.background='rgba(59, 130, 246, 0.05)'; this.style.borderColor='rgba(59, 130, 246, 0.2)';" onmouseout="this.style.background='rgba(255,255,255,0.02)'; this.style.borderColor='rgba(255,255,255,0.05)';">
+                            <i class="ion-ios-arrow-thin-right" style="color: #a855f7; font-size: 18px;"></i>
+                            <span style="color: #e2e8f0; font-size: 14px; font-weight: 500;">@service</span>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* O bulanıklığı (blur) yaratan tüm gölgeleri ve maskeleri temizler */
+    #section3::after, #section3::before, .owl-stage-outer::after {
+        display: none !important;
+        content: none !important;
+        filter: none !important;
+    }
+
+    /* Eğer bir slider kütüphanesi otomatik blur ekliyorsa onu zorla kaldırır */
+    .experience-timeline, .row, .container {
+        filter: none !important;
+        backdrop-filter: none !important;
+    }
+
+    /* Sayfa geçişlerinde beyaz boşluk oluşmasını engeller */
+    body {
+        background-color: #0f172a !important;
+    }
+</style>
