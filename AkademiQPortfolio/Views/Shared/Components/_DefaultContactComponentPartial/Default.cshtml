@@ -1,4 +1,4 @@
-﻿@model Contact
+﻿@model  Contact
 <section id="section8" style="padding: 100px 0; background: #0f172a; font-family: 'Inter', sans-serif; color: #ffffff;">
     <div class="container">
 
@@ -28,33 +28,33 @@
             <div class="col-sm-7">
                 <h5 style="text-transform: uppercase; letter-spacing: 1px; margin-bottom: 30px; color: #a855f7;">İletişim Formu</h5>
 
-                <form action="scripts/contact.php" method="post" class="contact-form">
+                <form asp-action="SendMessage" asp-controller="Contact" method="post" class="contact-form">
                     <div class="row">
                         <div class="col-sm-6 form-group">
-                            <input type="text" name="contact-name" placeholder="İsim" class="form-control custom-input">
+                            <input type="text" name="SenderName" placeholder="İsim" class="form-control custom-input" required>
                         </div>
                         <div class="col-sm-6 form-group">
-                            <input type="text" name="contact-phone" placeholder="Telefon" class="form-control custom-input">
+                            <input type="email" name="SenderEmail" placeholder="Email" class="form-control custom-input" required>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-sm-6 form-group">
-                            <input type="email" name="contact-email" placeholder="Email" class="form-control custom-input">
+                            <select name="MessageSubject" class="form-control custom-input" required>
+                                <option value="" disabled selected>Konu Seçiniz</option>
+                                <option value="Proje Teklifi">Proje Teklifi</option>
+                                <option value="API Geliştirme">API Geliştirme</option>
+                                <option value="Danışmanlık">Danışmanlık</option>
+                                <option value="Uygulama Geliştirme">Uygulama Geliştirme</option>
+                            </select>
                         </div>
                         <div class="col-sm-6 form-group">
-                            <select name="contact-subject" class="form-control custom-input">
-                                <option value="" disabled selected>Konu Seçiniz</option>
-                                <option value="proje">Proje Teklifi</option>
-                                <option value="api">API Geliştirme</option>
-                                <option value="danismanlik">Danışmanlık</option>
-                                <option value="uygulama">Uygulama Geliştirme</option>
-                            </select>
+                            <input type="text" placeholder="Telefon (Opsiyonel)" class="form-control custom-input">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <textarea name="contact-message" placeholder="Mesajınız" rows="4" class="form-control custom-input"></textarea>
+                        <textarea name="MessageText" placeholder="Mesajınız" rows="4" class="form-control custom-input" required></textarea>
                     </div>
 
                     <div class="form-group" style="margin-top: 20px;">
@@ -69,7 +69,7 @@
 </section>
 
 <style>
-    
+
     .custom-input {
         background: rgba(255, 255, 255, 0.03) !important;
         border: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -86,7 +86,7 @@
             box-shadow: none !important;
         }
 
-    /* Dropdown Ok Rengi ve Arkaplanı */
+
     select.custom-input option {
         background: #0f172a;
         color: #fff;

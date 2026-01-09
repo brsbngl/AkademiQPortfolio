@@ -28,7 +28,6 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<Message> Messages { get; set; }
 
-
     public virtual DbSet<Skill> Skills { get; set; }
 
     public virtual DbSet<Work> Works { get; set; }
